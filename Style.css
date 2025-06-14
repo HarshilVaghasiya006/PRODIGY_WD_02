@@ -1,0 +1,183 @@
+* {
+    background-color: rgb(220, 240, 255);
+    color: rgb(20, 30, 60);
+    font-family: 'Caveat', cursive;
+}
+
+#stopwatch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    top: 20vh;
+}
+
+#circle {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: 200px;
+    border-radius: 20px;
+    background: radial-gradient(circle at center, rgb(180, 220, 255), rgb(140, 180, 230));
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.hand {
+    position: absolute;
+    background-color: rgb(20, 30, 60);
+    transform-origin: 50% 90%;
+    border-radius: 6px;
+}
+
+#hour {
+    width: 6px;
+    height: 60px;
+    top: 70px;
+    left: 147px;
+    animation: rotateHour 43200s linear infinite;
+}
+
+#minute {
+    width: 4px;
+    height: 80px;
+    top: 50px;
+    left: 148px;
+    background-color: rgb(50, 70, 100);
+    animation: rotateMinute 3600s linear infinite;
+}
+
+#second {
+    width: 2px;
+    height: 90px;
+    top: 40px;
+    left: 149px;
+    background-color: rgb(240, 60, 60);
+    animation: rotateSecond 60s linear infinite;
+}
+
+/* Clock hands rotation */
+@keyframes rotateHour {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotateMinute {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotateSecond {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Button press red effect */
+@keyframes flashRed {
+    0% {
+        background-color: red;
+    }
+
+    100% {
+        background-color: rgb(100, 180, 255);
+    }
+}
+
+#Start,
+#Pause,
+#Reset,
+#Lap {
+    width: 8rem;
+    height: 3rem;
+    background-color: rgb(100, 180, 255);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    color: rgb(20, 30, 60);
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#Start:hover,
+#Pause:hover,
+#Reset:hover,
+#Lap:hover {
+    background-color: rgb(150, 200, 255);
+    color: rgb(20, 30, 60);
+    border: 2px solid rgb(87, 167, 241);
+    box-shadow: 0 0 10px rgba(79, 162, 239, 0.5);
+}
+
+#Start:active,
+#Pause:active,
+#Reset:active,
+#Lap:active {
+    transform: translateY(2px);
+    /* Press-in effect */
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.4);
+    animation: flashRed 1.5s forwards;
+    color: white;
+}
+
+#Start:focus,
+#Pause:focus,
+#Reset:focus,
+#Lap:focus {
+    outline: 2px solid rgb(87, 167, 241);
+    outline-offset: 2px;
+}
+
+#title {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    color: rgb(50, 70, 120);
+}
+
+#display {
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin-top: 1rem;
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+    color: rgb(20, 30, 60);
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1.5rem;
+    width: 400px;
+    height: auto;
+}
